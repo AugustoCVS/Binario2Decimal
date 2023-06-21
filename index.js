@@ -41,45 +41,42 @@ function convertBinaryToDecimal(binaryString){
 function addResponse(response){
     resultDiv.innerHTML = `<p> O numero em decimal é: ${response} </p>`
 
-    addImgAccept();
+    addImg(false);
 }
 
 function addError(error) {
     errorDiv.innerHTML = `<p class="errorMessage">${error}</p>`;
 
-    addImgError()
+    addImg(true)
   }
 
-  function addImgError() {
+let currentImg = null
+
+function addImg(isError) {
+
+    if (currentImg) {
+        currentImg.remove();
+      }
+
     const divResponsesImg = document.createElement("div");
-    divResponsesImg.classList.add("errorImg");
+    divResponsesImg.classList.add(isError ? "errorImg" : "acceptImg");
     document.body.appendChild(divResponsesImg);
 
-    const imgElement = document.createElement("img");
-    imgElement.src = "./img/gatinhoTriste.jpg";
-    divResponsesImg.appendChild(imgElement);
+    if(divResponsesImg.classList.contains("acceptImg")){
 
-    const previousImg = document.querySelector(".acceptImg");
-    if (previousImg) {
-        previousImg.remove();
-    }
+        const imgAcceptElement = document.createElement("img");
+        imgAcceptElement.src = "./img/gatinhoFeliz.jpg";
+        divResponsesImg.appendChild(imgAcceptElement);
+
+    }else if(divResponsesImg.classList.contains("errorImg")){
+
+        const imgErrorElement = document.createElement("img");
+        imgErrorElement.src = "./img/gatinhoTriste.jpg";
+        divResponsesImg.appendChild(imgErrorElement);
+    }  
+    
+    currentImg = divResponsesImg;
 }
-
-function addImgAccept() {
-    const divResponsesImg = document.createElement("div");
-    divResponsesImg.classList.add("acceptImg");
-    document.body.appendChild(divResponsesImg);
-
-    const imgElement = document.createElement("img");
-    imgElement.src = "./img/gatinhoFeliz.jpg";
-    divResponsesImg.appendChild(imgElement);
-
-    const previousImg = document.querySelector(".errorImg");
-    if (previousImg) {
-        previousImg.remove();
-    }
-}
-
 
 btnConverter.addEventListener('click', function() {
     convertBinaryToDecimal(inputBinary.value);
