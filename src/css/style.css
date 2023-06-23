@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+:root{
+    --font-titulo: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --font-paragrafo: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.section__titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    font-family: var(--font-titulo);
+    border-bottom: 1px solid black;
+    width: 80%;
+}
+
+.section__conteudo{
+    font-family: var(--font-paragrafo);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 300px;
+    height: 300px;
+    background-color: #f1f1f1;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.divConversor{
+    display: flex;
+    flex-direction: column;
+    gap: 30px
+}
+
+.errorMessage{
+    color: red;
+    font-size: 1rem;
+}
+
+#input__binario{
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+#btn__converter{
+    width: 50%;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: rgb(187, 185, 185);
+}
+
+#btn__converter:hover{
+    background-color: lightgreen;
+}
+
+.errorImg{
+    background-image: url("/img/gatinhoTriste.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.acceptImg{
+    background-image: url("./img/gatinhoFeliz.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
